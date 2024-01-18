@@ -6,13 +6,19 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --color-green: rgb(7, 51, 7);
+  --color-light-yellow: rgb(247, 203, 8);
+  --color-light-pink: rgb(202, 142, 106);
+  --color-light-blue: rgb(22, 144, 153);
+  --color-white: rgb(255, 255, 255);
+  --color-dark-blue: rgb(0, 54, 85);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 255, 255, 255;
   }
 }
 
