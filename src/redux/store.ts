@@ -1,6 +1,7 @@
 // INFO: Holds all of our states inside of our redux
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './features/auth-slice'
+import booksReducer from './features/books-slice'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
   // Each sub-reducer inside "reducer" key is a slice that contains a specific set/subset of variables
   reducer: {
     authReducer,
+    booksReducer,
   },
 })
 

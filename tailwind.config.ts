@@ -12,9 +12,11 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-
         'gradient-header':
-          'linear-gradient(46deg, var(--color-green) 60%, rgba(65, 67, 74, 1) 96%, rgba(65, 67, 74, 1) 96%)',
+          'linear-gradient(to bottom right, var(--color-green) 20%, var(--color-light-blue) 46%, var(--color-light-yellow) 86%)',
+
+        'fiction-header':
+          'linear-gradient(to top right, var(--color-green) 40%, var(--color-light-yellow) 75%)',
       },
       colors: {},
     },

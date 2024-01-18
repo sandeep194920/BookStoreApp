@@ -3,6 +3,7 @@ import { useAppSelector } from '@/redux/store'
 import Login from './login'
 import React from 'react'
 import Header from '@/components/Header'
+import Books from '@/components/Books'
 
 export default function Home() {
   const { username, isModerator } = useAppSelector(
@@ -12,9 +13,10 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Login />
+      <Books />
+      {/* <Login />
       <h1>Username: {username}</h1>
-      {isModerator && <h1>This user is a moderator</h1>}
+      {isModerator && <h1>This user is a moderator</h1>} */}
     </>
   )
 }
