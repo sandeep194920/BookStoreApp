@@ -24,7 +24,6 @@
   --color-white: rgb(255, 255, 255);
   --color-green: rgb(7, 51, 7);
   --color-light-grey: rgba(235, 235, 245, 0.356);
-  --color-light-pink: rgb(202, 142, 106);
 }
 
 @media (prefers-color-scheme: dark) {
