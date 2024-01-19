@@ -2,6 +2,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './features/auth-slice'
 import booksReducer from './features/books-slice'
+import appReducer from './features/app-slice'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
 
 export const store = configureStore({
@@ -10,6 +11,7 @@ export const store = configureStore({
   reducer: {
     authReducer,
     booksReducer,
+    appReducer,
   },
 })
 

@@ -32,7 +32,7 @@ function Book(props: BookType) {
       bookImage = 'mystery.jpg'
   }
   return (
-    <div className="min-w-[17rem] max-w-[17rem] space-y-6 rounded-lg shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] sm:min-w-[20rem] sm:max-w-[20rem] md:min-w-[22rem] md:max-w-[22rem]">
+    <article className="min-w-[17rem] max-w-[17rem] space-y-6 rounded-lg shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] sm:min-w-[20rem] sm:max-w-[20rem] md:min-w-[22rem] md:max-w-[22rem] cursor-pointer">
       <div
         className="clippath relative h-[13rem] rounded-tl-lg rounded-tr-lg bg-cover backdrop-blur-none"
         style={{
@@ -61,7 +61,7 @@ function Book(props: BookType) {
           </div>
         ))}
       </ul>
-    </div>
+    </article>
   )
 }
 

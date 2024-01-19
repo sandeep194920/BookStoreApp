@@ -17,6 +17,8 @@ const config: Config = {
 
         'fiction-header':
           'linear-gradient(to top right, var(--color-green) 40%, var(--color-light-yellow) 75%)',
+        'book-details':
+          'linear-gradient(to top right, var(--color-green), 30%, var(--color-light-blue) 50%, var(--color-light-yellow) 96%)',
       },
       colors: {},
     },
