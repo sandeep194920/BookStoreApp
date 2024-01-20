@@ -43,13 +43,8 @@ function BookDetails() {
     // Optionally reset the form after successful submission
     resetForm()
   }
-  const categories = [
-    'Fiction',
-    'Non-Fiction',
-    'Science Fiction',
-    'Mystery',
-    'Fantasy',
-  ]
+
+  const categories = ['Fiction', 'Love Fantacy', 'Thriller Mystery']
 
   return (
     <Formik
@@ -108,7 +103,7 @@ function BookDetails() {
                 <Field
                   as="select"
                   name="category"
-                  className="bg-transparent border-b-2 outline-none mb-3 w-[11.5rem]"
+                  className="bg-transparent border-b-2 outline-none mb-3 w-[11.4rem]"
                 >
                   {categories.map((category) => (
                     <option key={category} value={category}>

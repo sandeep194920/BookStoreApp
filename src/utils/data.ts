@@ -3,7 +3,7 @@
 export type Book = {
   id: number
   title: string
-  category: string
+  category: 'Love Fantacy' | 'Thriller Mystery' | 'Fiction'
   language: string
   price: number
   pages: number
