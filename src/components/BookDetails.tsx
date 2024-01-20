@@ -3,13 +3,14 @@ import { useDispatch } from 'react-redux'
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { hideModal } from '@/redux/features/app-slice'
+import { useAppSelector } from '@/redux/store'
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   category: Yup.string().required('Category is required'),
   author: Yup.string().required('Author is required'),
-  price: Yup.string().required('Price is required'),
-  pages: Yup.string().required('Pages is required'),
+  price: Yup.number().required('Price is required'),
+  pages: Yup.number().required('Pages is required'),
   language: Yup.string().required('Language is required'),
 })
 
@@ -17,22 +18,16 @@ interface FormValues {
   title: string
   category: string
   author: string
-  price: string
-  pages: string
+  price: number
+  pages: number
   language: string
-}
-
-const initialValues: FormValues = {
-  title: 'Angels and Demons',
-  category: 'Fiction',
-  author: 'Dan Brown',
-  price: '30$',
-  pages: '223',
-  language: 'English',
 }
 
 function BookDetails() {
   const dispatch = useDispatch()
+  const { currentBook } = useAppSelector((state) => state.booksReducer.value)
+
+  const initialValues: FormValues = currentBook
 
   // State variables
   const [formData, setFormData] = useState<FormValues>(initialValues)
@@ -79,6 +74,25 @@ function BookDetails() {
                 />
                 <ErrorMessage
                   name="title"
+                  component="div"
+                  className="text-pink-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Author */}
+          <div className="my-10">
+            <div className="flex justify-between">
+              <h3>Author</h3>
+              <div>
+                <Field
+                  type="text"
+                  name="author"
+                  className="bg-transparent border-b-2 outline-none mb-3"
+                />
+                <ErrorMessage
+                  name="author"
                   component="div"
                   className="text-pink-300"
                 />
@@ -165,7 +179,7 @@ function BookDetails() {
               </div>
             </div>
           </div>
-          {/*  */}
+          {/* Buttons container */}
           <div className="flex justify-center gap-24 my-5 mt-15">
             <button
               type="submit"

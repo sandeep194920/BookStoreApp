@@ -1,10 +1,18 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import { Book as BookType } from '@/utils/data'
+import { useDispatch } from 'react-redux'
+import { setEditMode } from '@/redux/features/books-slice'
+import { showModal } from '@/redux/features/app-slice'
 
 function Book(props: BookType) {
-  const { id, name, price, category, author, desc, language, pages } = props
+  const { id, title, price, category, author, language, pages } = props
+  const dispatch = useDispatch()
+
+  const bookEditHandler = () => {
+    dispatch(setEditMode(id))
+    dispatch(showModal())
+  }
+
   const bookDetails = [
     category,
     `${price} CAD`,
@@ -32,7 +40,10 @@ function Book(props: BookType) {
       bookImage = 'mystery.jpg'
   }
   return (
-    <article className="min-w-[17rem] max-w-[17rem] space-y-6 rounded-lg shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] sm:min-w-[20rem] sm:max-w-[20rem] md:min-w-[22rem] md:max-w-[22rem] cursor-pointer">
+    <article
+      onClick={() => bookEditHandler()}
+      className="min-w-[17rem] max-w-[17rem] space-y-6 rounded-lg shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] sm:min-w-[20rem] sm:max-w-[20rem] md:min-w-[22rem] md:max-w-[22rem] cursor-pointer"
+    >
       <div
         className="clippath relative h-[13rem] rounded-tl-lg rounded-tr-lg bg-cover backdrop-blur-none"
         style={{
@@ -46,7 +57,7 @@ function Book(props: BookType) {
           <span
             className={`${bookHeader} text-white italic px-3 py-2 tracking-wider`}
           >
-            {name}
+            {title}
           </span>
         </h4>
       </div>

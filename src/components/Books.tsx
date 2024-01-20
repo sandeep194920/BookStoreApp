@@ -6,7 +6,6 @@ import Modal from './Modal/Modal'
 
 function Books() {
   const allBooks = useAppSelector((state) => state.booksReducer.value.books)
-  console.log('The books data is', allBooks)
 
   return (
     <>
