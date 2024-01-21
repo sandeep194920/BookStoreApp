@@ -30,12 +30,11 @@ const books = createSlice({
         state.value.books.find((book) => book.id === action.payload) || newBook
     },
     editBook: (state, action) => {
-      // const { bookDetails } = action.payload
-      // console.log('The values are', bookDetails)
-      // state.value.isEditMode = true
-      // state.value.books.map((book) => {
-      //   return book.id === bookDetails.id ? { ...book, bookDetails } : book
-      // })
+      const { updatedBookDetails } = action.payload
+      state.value.isEditMode = false
+      state.value.books = state.value.books.map((book) =>
+        book.id === updatedBookDetails.id ? updatedBookDetails : book
+      )
     },
     addNewBook: (state, action) => {
       return {

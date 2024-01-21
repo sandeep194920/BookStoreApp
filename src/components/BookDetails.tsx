@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { hideModal } from '@/redux/features/app-slice'
 import { useAppSelector } from '@/redux/store'
+import { editBook } from '@/redux/features/books-slice'
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
@@ -33,15 +34,10 @@ function BookDetails() {
   const [formData, setFormData] = useState<FormValues>(initialValues)
 
   // Formik form submission handler
-  const handleFormSubmit = (
-    values: FormValues,
-    { resetForm }: FormikHelpers<FormValues>
-  ) => {
+  const handleFormSubmit = (values: FormValues) => {
     // Update state with form data
     setFormData(values)
-
-    // Optionally reset the form after successful submission
-    resetForm()
+    dispatch(editBook({ updatedBookDetails: values }))
   }
 
   const categories = ['Fiction', 'Love Fantacy', 'Thriller Mystery']
@@ -144,7 +140,7 @@ function BookDetails() {
               <h3>Pages</h3>
               <div>
                 <Field
-                  type="text"
+                  type="number"
                   name="pages"
                   className="bg-transparent border-b-2 outline-none mb-3"
                 />
