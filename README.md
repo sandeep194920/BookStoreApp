@@ -1,5 +1,9 @@
 Access the website here [BookStore App](https://book-store-app-theta-ashen.vercel.app/) deployed on Vercel.
 
+#### Note:
+
+You might want to create a free vercel account and login to access this site.
+
 ## About this Project
 
 This is a Book store CRUD FrontEnd app written in Next JS that uses Redux for state management and Tailwind for styling.
