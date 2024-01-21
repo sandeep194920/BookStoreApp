@@ -6,7 +6,7 @@ You might want to create a free vercel account and login to access this site.
 
 ## About this Project
 
-This is a Book store CRUD FrontEnd app written in Next JS that uses Redux for state management and Tailwind for styling.
+This is a bookstore CRUD FrontEnd app written in Next.js that uses Redux for state management and Tailwind for styling. Each book can belong to one of the genres: Fiction, Thriller, Mystery, or Love Fantasy. Based on the genre, the cover of the book will be displayed.
 
 ## To, run the development server locally:
 
