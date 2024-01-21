@@ -6,16 +6,13 @@ import { hideModal } from '@/redux/features/app-slice'
 import { useAppSelector } from '@/redux/store'
 import { addNewBook, editBook } from '@/redux/features/books-slice'
 
-const categories = [
-  'Select a genre',
-  'Fiction',
-  'Love Fantacy',
-  'Thriller Mystery',
-]
+let categories = ['Fiction', 'Love Fantacy', 'Thriller Mystery']
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
-  category: Yup.string().required('Category is required'),
+  category: Yup.string()
+    .oneOf(categories, 'Please select a valid genre')
+    .required('Category is required'),
   author: Yup.string().required('Author is required'),
   price: Yup.number()
     .min(1, 'Price must be at least 1')
@@ -25,6 +22,8 @@ const validationSchema = Yup.object().shape({
     .required('Pages is required'),
   language: Yup.string().required('Language is required'),
 })
+
+categories = ['Select a genre', ...categories]
 
 interface FormValues {
   title: string

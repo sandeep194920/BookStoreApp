@@ -1,21 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Access the website here [https://book-store-app-theta-ashen.vercel.app/] deployed on Vercel.
 
 ## About this Project
 
-This is a Book store app written in Next JS that uses Redux and Tailwind.
+This is a Book store CRUD FrontEnd app written in Next JS that uses Redux for state management and Tailwind for styling.
+
+##### To, run the development server locally:
+
+Clone this project using `git clone https://github.com/sandeep194920/BookStoreApp.git`
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

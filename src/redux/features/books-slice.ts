@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { allBooks } from '@/utils/data'
-import { randomUUID } from 'crypto'
+import { v4 as uuid } from 'uuid'
 
 const newBook = {
   title: '',
@@ -46,7 +46,7 @@ const books = createSlice({
       state.value.isAddMode = false
       state.value.newBookAdded = true
       state.value.books.push({
-        id: randomUUID,
+        id: uuid(),
         ...newBook,
       })
     },
