@@ -1,4 +1,4 @@
-Access the website here [https://book-store-app-theta-ashen.vercel.app/] deployed on Vercel.
+Access the website here [BookStore App](https://book-store-app-theta-ashen.vercel.app/) deployed on Vercel.
 
 ## About this Project
 
