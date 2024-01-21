@@ -1,7 +1,8 @@
 // this file contains all the books (array of books) we render from
+import { v4 as uuid } from 'uuid'
 
 export type Book = {
-  id: number
+  id: string
   title: string
   category: 'Love Fantacy' | 'Thriller Mystery' | 'Fiction'
   language: string
@@ -13,7 +14,7 @@ export type Book = {
 
 export const allBooks: Book[] = [
   {
-    id: 1,
+    id: uuid(),
     title: 'The Sacrifice',
     category: 'Love Fantacy',
     language: 'English',
@@ -23,7 +24,7 @@ export const allBooks: Book[] = [
     author: 'Emma Hawthorne',
   },
   {
-    id: 2,
+    id: uuid(),
     title: 'Innocent Criminal',
     category: 'Thriller Mystery',
     language: 'Spanish',
@@ -33,7 +34,7 @@ export const allBooks: Book[] = [
     author: 'Alexander Blackwell',
   },
   {
-    id: 3,
+    id: uuid(),
     title: 'Power of belief',
     category: 'Fiction',
     language: 'French',
@@ -43,7 +44,7 @@ export const allBooks: Book[] = [
     author: 'Olivia Sterling',
   },
   {
-    id: 4,
+    id: uuid(),
     title: 'Self respect',
     category: 'Fiction',
     language: 'English',
@@ -53,7 +54,7 @@ export const allBooks: Book[] = [
     author: 'Benjamin Knight',
   },
   {
-    id: 5,
+    id: uuid(),
     title: 'A Sweet Pain',
     category: 'Love Fantacy',
     language: 'German',
@@ -63,7 +64,7 @@ export const allBooks: Book[] = [
     author: 'Isabella Monroe',
   },
   {
-    id: 6,
+    id: uuid(),
     title: 'Invisible weapon',
     category: 'Thriller Mystery',
     language: 'English',
@@ -73,7 +74,7 @@ export const allBooks: Book[] = [
     author: 'Elijah Hartman',
   },
   {
-    id: 7,
+    id: uuid(),
     title: 'Who can it be?',
     category: 'Thriller Mystery',
     language: 'English',
@@ -83,7 +84,7 @@ export const allBooks: Book[] = [
     author: 'Sophia Carmichael',
   },
   {
-    id: 8,
+    id: uuid(),
     title: 'The Day before',
     category: 'Love Fantacy',
     language: 'English',
@@ -93,7 +94,7 @@ export const allBooks: Book[] = [
     author: 'Nathanial Drake',
   },
   {
-    id: 9,
+    id: uuid(),
     title: "Life isn't serious",
     category: 'Fiction',
     language: 'English',

@@ -1,17 +1,28 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { hideModal } from '@/redux/features/app-slice'
 import { useAppSelector } from '@/redux/store'
-import { editBook } from '@/redux/features/books-slice'
+import { addNewBook, editBook } from '@/redux/features/books-slice'
+
+const categories = [
+  'Select a genre',
+  'Fiction',
+  'Love Fantacy',
+  'Thriller Mystery',
+]
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   category: Yup.string().required('Category is required'),
   author: Yup.string().required('Author is required'),
-  price: Yup.number().required('Price is required'),
-  pages: Yup.number().required('Pages is required'),
+  price: Yup.number()
+    .min(1, 'Price must be at least 1')
+    .required('Price is required'),
+  pages: Yup.number()
+    .min(1, 'Pages must be at least 1')
+    .required('Pages is required'),
   language: Yup.string().required('Language is required'),
 })
 
@@ -26,7 +37,9 @@ interface FormValues {
 
 function BookDetails() {
   const dispatch = useDispatch()
-  const { currentBook } = useAppSelector((state) => state.booksReducer.value)
+  const { currentBook, isAddMode, isEditMode } = useAppSelector(
+    (state) => state.booksReducer.value
+  )
 
   const initialValues: FormValues = currentBook
 
@@ -37,10 +50,9 @@ function BookDetails() {
   const handleFormSubmit = (values: FormValues) => {
     // Update state with form data
     setFormData(values)
-    dispatch(editBook({ updatedBookDetails: values }))
+    isEditMode && dispatch(editBook({ updatedBookDetails: values }))
+    isAddMode && dispatch(addNewBook({ newBook: values }))
   }
-
-  const categories = ['Fiction', 'Love Fantacy', 'Thriller Mystery']
 
   return (
     <Formik

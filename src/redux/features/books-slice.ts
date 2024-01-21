@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 import { allBooks } from '@/utils/data'
+import { randomUUID } from 'crypto'
 
 const newBook = {
   title: '',
   category: '',
   language: '',
-  price: 0,
-  pages: 0,
+  price: 1,
+  pages: 1,
   author: '',
 }
 
@@ -17,6 +17,7 @@ const initialState = {
     isEditMode: false,
     isAddMode: false,
     currentBook: newBook,
+    newBookAdded: false,
   },
 }
 
@@ -29,6 +30,10 @@ const books = createSlice({
       state.value.currentBook =
         state.value.books.find((book) => book.id === action.payload) || newBook
     },
+    setAddMode: (state) => {
+      state.value.currentBook = newBook
+      state.value.isAddMode = true
+    },
     editBook: (state, action) => {
       const { updatedBookDetails } = action.payload
       state.value.isEditMode = false
@@ -37,11 +42,13 @@ const books = createSlice({
       )
     },
     addNewBook: (state, action) => {
-      return {
-        value: {
-          ...initialState.value,
-        },
-      }
+      const { newBook } = action.payload
+      state.value.isAddMode = false
+      state.value.newBookAdded = true
+      state.value.books.push({
+        id: randomUUID,
+        ...newBook,
+      })
     },
     deleteBook: (state, action) => {
       const books = state.value.books.filter(
@@ -57,5 +64,6 @@ const books = createSlice({
   },
 })
 
-export const { editBook, addNewBook, deleteBook, setEditMode } = books.actions
+export const { editBook, addNewBook, deleteBook, setEditMode, setAddMode } =
+  books.actions
 export default books.reducer

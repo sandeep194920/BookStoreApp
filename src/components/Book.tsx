@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Book as BookType } from '@/utils/data'
 import { useDispatch } from 'react-redux'
 import { setEditMode } from '@/redux/features/books-slice'
 import { showModal } from '@/redux/features/app-slice'
 import { deleteBook } from '@/redux/features/books-slice'
+import { useAppSelector } from '@/redux/store'
 
 function Book(props: BookType) {
   const { id, title, price, category, author, language, pages } = props
+
   const dispatch = useDispatch()
 
   const bookEditHandler = () => {
